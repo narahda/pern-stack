@@ -2,7 +2,7 @@ in camera directory: start ffmpeg -->
 .\videos\ffmpeg -i rtsp://192.168.1.87:8080/h264_pcm.sdp -fflags flush_packets -max_delay 5 -flags -global_header -hls_time 5 -hls_list_size 3 -vcodec copy -y .\videos\ipcam\index.m3u8
 
 in camera dir: start cleaner -->
-.\node_modules\.bin\nodemon .\cleaner.js
+..\node_modules\.bin\nodemon .\camera\cleaner.js
 
 still in camera dir: generate hls files -->
-.\node_modules\.bin\nodemon .\hls-server.js
+..\node_modules\.bin\nodemon .\hls-server.js
