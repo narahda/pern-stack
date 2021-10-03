@@ -117,7 +117,7 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
     Table.destroy({
       where: {},
-      truncate: false
+      truncate: 0
     })
       .then(nums => {
         res.send({ message: `${nums} Tables were deleted successfully!` });
@@ -132,7 +132,7 @@ exports.deleteAll = (req, res) => {
 
 // Find all published Tutorials
 exports.findAllPublished = (req, res) => {
-    Table.findAll({ where: { published: true } })
+    Table.findAll({ where: { published: 1 } })
       .then(data => {
         res.send(data);
       })

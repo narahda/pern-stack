@@ -14,7 +14,15 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: 1 }));
+
+const db = require("./app/models");
+
+
+db.sequelize.sync();
+//db.sequelize.sync({force: true}).then(() -> {
+//  console.log("Drop and re-sync db");
+//});
 
 // simple route
 app.get("/", (req, res) => {
@@ -29,5 +37,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-const db = require("./app/models");
-db.sequelize.sync();
