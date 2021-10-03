@@ -6,4 +6,4 @@ setInterval(() => {
 }, 5000);
 
 //ok do i really need this bc this doesnt seem to be coded right
-//or smthg along the way isnt coded right :(
+//or smthg along the way isnt coded right :( 

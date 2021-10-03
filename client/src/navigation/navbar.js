@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,
+import {Collapse,Container, Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,
   DropdownMenu,DropdownItem,NavbarText} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,9 +10,8 @@ const Navi = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div className= "boutme">
-          <Navbar bg="dark" variant="dark">
-            <div className = "container">
+          <Navbar color="dark" >
+            <Container>
               <NavbarBrand href = "."> welcome to the internet</NavbarBrand>
               <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
@@ -27,9 +26,9 @@ const Navi = (props) => {
                       </DropdownItem>
                   </DropdownMenu>
               </UncontrolledDropdown>
-            </div>
+            </Container>
           </Navbar>
-        </div>
+        
       );
 }
 
