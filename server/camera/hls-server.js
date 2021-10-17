@@ -18,7 +18,7 @@ http.createServer(function (request, response) {
         return;
     }
 
-    var filePath = './videos/ipcam' + request.url;
+    var filePath = './camera/videos/ipcam' + request.url;
     console.log(filePath);;
     fs.readFile(filePath, function (error, content) {
         response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
