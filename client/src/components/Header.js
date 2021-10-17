@@ -1,22 +1,22 @@
 import React, {Component, useState} from 'react';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText} from 'reactstrap';
+import {Navbar, NavbarBrand, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Navi = (props) => {
+const Navi = () => {
     return (
-        <div className = "header">
-            <Navbar color = "dark" variant = "dark">
+        <div className = "Container">
+            <Navbar color = "light" variant = "danger">
                 <NavbarBrand href = "." src = "."> Me! </NavbarBrand>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
-                      my life
+                      stuff idk?
                   </DropdownToggle>
                   <DropdownMenu>
-                      <DropdownItem href = ".">
-                          work experiences
+                      <DropdownItem href = "http://localhost:8080/accounts">
+                          video menu
                       </DropdownItem>
                       <DropdownItem>
-                          schooling
+                          update info
                       </DropdownItem>
                   </DropdownMenu>
               </UncontrolledDropdown>
