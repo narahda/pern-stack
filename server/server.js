@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require("./db");
+const pool = require("./app/database/db");
 require("dotenv").config();
 
 const app = express();
@@ -17,8 +17,9 @@ app.post("/accounts", async(req, res) => {
         const newUser = await pool.query("INSERT INTO users (username, pwd) VALUES($1, $2) RETURNING *", 
         [username, pwd]);
 
-        res.json(newUser.rows[0]);
         res.json("account added")
+        res.json(newUser.rows[0]);
+        
 
     } catch(err) {
         console.error(err.message);
@@ -54,10 +55,10 @@ app.get("/accounts/:id", async(req,res) => {
 //update a password
 app.put("/accounts/:id", async(req, res)=> {
     try {
-        const {id} = req.params;
-        const {pwd} = req.body;
-        const updatePwd = await pool.query("UPDATE users SET pwd = $1 WHERE id = $2", [pwd, id]);
-
+      const {id} = req.params;
+      const {pwd} = req.body;
+      const updatePwd = await pool.query("UPDATE users SET pwd = $1 WHERE id = $2", [pwd, id]);
+        
         res.json("password updated");
     } catch(err) {
         console.error(err.message);

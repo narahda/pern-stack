@@ -1,0 +1,6 @@
+CREATE TABLE users(
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL ,
+    pwd VARCHAR(255) NOT NULL 
+
+);

@@ -6,3 +6,5 @@ in camera dir: start cleaner -->
 
 still in camera dir: generate hls files -->
 ..\node_modules\.bin\nodemon .\hls-server.js
+
+update --> all go to server directory, use shortcuts to start
