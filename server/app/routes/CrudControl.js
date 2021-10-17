@@ -1,13 +1,11 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const pool = require("./db");
-require("dotenv").config();
 
-const app = express();
-
+//middleware
 app.use(cors());
 app.use(express.json());
-
 
 //create user
 app.post("/accounts", async(req, res) => {
@@ -76,12 +74,3 @@ app.delete("/accounts/:id", async(req, res) => {
         console.error(err.message);
     }
 });
-
-
-
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
-
