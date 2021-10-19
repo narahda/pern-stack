@@ -7,7 +7,7 @@ const Navi = () => {
     return (
         <div className = "Container">
             <Navbar color = "light" variant = "danger">
-                <NavbarBrand href = "." src = "."> mango! </NavbarBrand>
+                <NavbarBrand href = "/" src = "."> mango! </NavbarBrand>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                       stuff idk?
