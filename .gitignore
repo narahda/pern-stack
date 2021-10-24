@@ -4,3 +4,4 @@
 *.exe
 
 .\server\camera\videos
+*.m3u8
