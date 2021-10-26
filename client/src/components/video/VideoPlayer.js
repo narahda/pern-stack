@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import ReactHlsPlayer from 'react-hls-player';
 import { Button, FormGroup, FormLabel, FormText,FormControl, Form } from 'react-bootstrap';
-import UserFinder from '../APIs/UserFinder';
+import UserFinder from '../../APIs/UserFinder';
 
 
 const VideoPlayer = () => {

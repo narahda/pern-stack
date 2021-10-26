@@ -1,7 +1,7 @@
 import React, {Component, useState} from 'react';
 import {Navbar, NavbarBrand, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VideoPlayer from './VideoPlayer';
+import VideoPlayer from './video/VideoPlayer';
 
 const Navi = () => {
     return (
