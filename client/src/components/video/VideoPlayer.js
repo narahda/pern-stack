@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import ReactHlsPlayer from 'react-hls-player';
-import { Button, FormGroup, FormLabel, FormControl, Form, Dropdown } from 'react-bootstrap';
+import { Button, FormGroup, FormLabel, FormControl, Form} from 'react-bootstrap';
 import UserFinder from '../../APIs/UserFinder';
 
 
@@ -24,7 +24,6 @@ const VideoPlayer = () => {
     return(
         <div>
             <Form>
-                <Dropdown/>
                 <FormGroup>
                     <FormLabel>rtsp link</FormLabel>
                     <FormControl value={video} onChange= {e => setVideo(e.target.value)}

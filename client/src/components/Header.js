@@ -1,28 +1,24 @@
 import React, {Component, useState} from 'react';
-import {Navbar, NavbarBrand, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container} from 'reactstrap';
+import { Container, DropdownButton, Nav, Navbar, NavbarBrand, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VideoPlayer from './video/VideoPlayer';
+import owlet from "../pictures/owlet.jpg";
 
 const Navi = () => {
     return (
-        <div className = "Container">
-            <Navbar color = "light" variant = "danger">
-                <NavbarBrand href = "/" src = "."> mango! </NavbarBrand>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                      stuff idk?
-                  </DropdownToggle>
-                  <DropdownMenu>
-                      <DropdownItem href = "http://localhost:3000/video">
-                          video menu
-                      </DropdownItem>
-                      <DropdownItem href = "http://localhost:3000/accounts/create">
-                          create user
-                      </DropdownItem>
-                  </DropdownMenu>
-              </UncontrolledDropdown>
+            <Navbar variant = "light">
+                <NavbarBrand href="/">
+                    <img src = {owlet} 
+                    width = "60" 
+                    height = "auto" 
+                    className="d-inline-block align-top"/>
+                </NavbarBrand>  
+                <Nav.Link href = "/accounts/create" style={{color:"black"}}>
+                    create account 
+                </Nav.Link>  
+                <Nav.Link href = "/video" style={{color:"black"}}>
+                    watch 
+                </Nav.Link>
             </Navbar>
-        </div>
 
     );
 };

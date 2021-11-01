@@ -6,6 +6,7 @@ import Home from "./components/home";
 import VideoPlayer from "./components/video/VideoPlayer";
 import AddUser from "./components/CreateUser";
 import UpdatePwd from "./components/UpdatePwd";
+import Bottom from "./components/Bottom"
 
 
 
@@ -25,6 +26,9 @@ const App = () => {
                     </Router>
                 </div>
             </UserListProvider>
+            <br />
+            <br />
+            <Bottom />
     </React.Fragment>
 )};
 
