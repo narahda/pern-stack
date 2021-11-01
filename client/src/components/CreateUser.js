@@ -8,9 +8,7 @@ const AddUser = () => {
     const [username,setUsername] = useState("");
     const [pwd,setPwd] = useState("");
     const handleSubmit = async(e) => {
-        e.preventDefault()
         try {
-            
             const response = await UserFinder.post("/", {
                 username,
                 pwd
@@ -36,7 +34,7 @@ const AddUser = () => {
                     <FormText className="text-muted">
                     </FormText> 
                     <br /> 
-                        <Button onClick={handleSubmit} variant="outline-primary" type="submit">Submit</Button>
+                    <Button onClick={handleSubmit} variant="outline-primary" type="submit">Submit</Button>
                 </FormGroup>  
             </Form>
         </div>
