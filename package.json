@@ -4,7 +4,8 @@
   "description": "node + react + express + postgres",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "go": "concurrently \" cd server & npm run lazy\" \"cd client & npm start\""
   },
   "repository": {
     "type": "git",
