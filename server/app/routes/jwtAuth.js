@@ -50,11 +50,13 @@ router.post("/login", async(req, res) => {
             pwd,
             user.rows[0].pwd
           );
-        
 
         if (!validPwd) {
             return res.status(401).json("Invalid Credential");
           }
+
+        const jwtToken = jwtGenerator(user.rows[0].id);
+        return res.json({ jwtToken });
 
     } catch (err) {
         console.error(err.message);
