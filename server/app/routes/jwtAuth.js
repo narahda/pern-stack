@@ -1,7 +1,7 @@
 const pool = require("../database/db");
 const bcrypt = require("bcrypt");
 const express = require("express");
-const jwtGenerator = require("../database/utils/jwtGenerator");
+const jwtGenerator = require("../utils/jwtGenerator");
 
 const router = require("express").Router();
 
@@ -64,7 +64,6 @@ router.post("/login", async(req, res) => {
 
     }
 });
-
 
 
 module.exports = router;
