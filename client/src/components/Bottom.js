@@ -9,7 +9,7 @@ import github from "../pictures/github.png";
 const Bottom = () => {
     return (
         <Container>
-            <Navbar sticky ="bottom">
+            <Navbar className="justify-content-center" sticky ="bottom">
                 <Nav>
                     <NavItem>
                         <NavLink href = "https://www.instagram.com/na.rahda/">

@@ -5,21 +5,23 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "begin": ".\\camera\\videos\\ffmpeg -i rtsp://192.168.1.87:8080/h264_pcm.sdp -fflags flush_packets -max_delay 5 -flags -global_header -hls_time 10 -hls_list_size 3 -vcodec copy -y .\\camera\\videos\\ipcam\\index.m3u8 ",
+    "begin": ".\\camera\\videos\\ffmpeg -i rtsp://192.168.1.196:8080/h264_pcm.sdp -fflags flush_packets -max_delay 5 -flags -global_header -hls_time 10 -hls_list_size 3 -vcodec copy -y .\\camera\\videos\\ipcam\\index.m3u8 ",
     "clean": ".\\node_modules\\.bin\\nodemon .\\camera\\cleaner.js",
     "send": ".\\node_modules\\.bin\\nodemon .\\camera\\hls-server.js",
     "start": "nodemon server.js",
-    "lazy": "concurrently \" npm run start\" \"npm run send\""
+    "lazy": "concurrently \" npm run start\" \"npm run send\" \"npm run clean\" "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "concurrently": "^6.3.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "find-remove": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.13",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",

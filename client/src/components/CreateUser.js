@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Form, FormGroup, FormControl, FormText, FormLabel , Button} from "react-bootstrap";
-import UserFinder from "../APIs/UserFinder";
+import UserAdder from "../APIs/UserAdder";
 
 
 const AddUser = () => {
@@ -9,7 +9,7 @@ const AddUser = () => {
     const [pwd,setPwd] = useState("");
     const handleSubmit = async(e) => {
         try {
-            const response = await UserFinder.post("/", {
+            const response = await UserAdder.post("/register", {
                 username,
                 pwd
             });
