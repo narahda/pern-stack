@@ -8,6 +8,7 @@ import AddUser from "./components/CreateUser";
 import UpdatePwd from "./components/UpdatePwd";
 import Bottom from "./components/Bottom";
 import Login from "./components/signIn";
+import Pic from "./components/pictures";
 
 
 
@@ -53,9 +54,10 @@ const App = () => {
                             <Route exact path = "/home"  render={props => isAuth ? (<Home {...props} setAuth={setAuth} /> ) : (<Redirect to="/" />)} />
                             <Route exact path = "/watch"  render={props => !isAuth ? (<Login {...props} setAuth={setAuth} /> ) : (<Redirect to="/video" />)}/>
                             <Route exact path = "/video" component = {VideoPlayer}/>
+                            <Route exact path = "/hello" component = {Pic} />
                             <Route exact path = "/accounts/update" component={UpdatePwd}/>
                             <Route exact path = "/accounts"  render={props => isAuth? (<Home {...props} setAuth={setAuth} />) : <Redirect to = "/accounts"/>}/>
-                            <Route exact path = "/register" render={props => !isAuth? (<AddUser {...props} setAuth={setAuth} />) : <Redirect to = "/home"/>}  />
+                            <Route exact path = "/register" render={props => !isAuth? (<AddUser {...props} setAuth={setAuth} />) : <Redirect to = "/hello"/>}  />
                         </Switch>
                     </Router>
                 </div>
