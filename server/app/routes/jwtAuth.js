@@ -2,11 +2,13 @@ const pool = require("../database/db");
 const bcrypt = require("bcrypt");
 const express = require("express");
 const jwtGenerator = require("../utils/jwtGenerator");
+const validInfo = require("../middleware/validInfo")
+const authorization = require("../middleware/authorization")
 
 const router = require("express").Router();
 
 
-router.post("/register", async (req, res) => {
+router.post("/register", validInfo, async (req, res) => {
     const {username, pwd} = req.body;
     try {
         const user = await pool.query ("SELECT * FROM users WHERE username = $1", [username]);
@@ -34,7 +36,7 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.post("/login", async(req, res) => {
+router.post("/login", validInfo, async(req, res) => {
 
     const {username, pwd} = req.body;
 
@@ -64,6 +66,15 @@ router.post("/login", async(req, res) => {
 
     }
 });
+
+router.get("/is-verify",authorization, async(req, res) => {
+    try {
+        res.json(true);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("server error");  
+    }
+})
 
 
 module.exports = router;
