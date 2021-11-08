@@ -12,10 +12,17 @@ import Login from "./components/signIn";
 
 
 const App = () => {
-    const checkAuthenticated = async () => {
+  
+  const [isAuth, setIsAuth] = useState(false);
+
+  const setAuth = boolean => {
+          setIsAuth(boolean);
+        };
+        
+      const checkAuthenticated = async () => {
         try {
           const res = await fetch("http://localhost:8080/auth/is-verify", {
-            method: "POST",
+            method: "GET",
             headers: { jwt_token: localStorage.token }
           });
     
@@ -31,11 +38,9 @@ const App = () => {
         checkAuthenticated();
       }, []);
 
-    const [isAuth, setIsAuth] = useState(false);
+    
 
-    const setAuth = boolean => {
-        setIsAuth(boolean);
-      };
+    
 
     return (
         <React.Fragment>
@@ -44,12 +49,13 @@ const App = () => {
                 <div className = "container">
                     <Router>
                         <Switch>
-                            <Route exact path = "/" render= {props => !isAuth ? (<Login {...props} setAuth={setAuth} />) : (<Redirect to ="/home"/> )} />
+                            <Route exact path = "/" render= {props => !isAuth ? (<Login {...props} setAuth={setAuth} />): (<Redirect to ="/home"/> )}  />
                             <Route exact path = "/home"  render={props => isAuth ? (<Home {...props} setAuth={setAuth} /> ) : (<Redirect to="/" />)} />
-                            <Route exact path = "/video"  render={props => isAuth ? (<VideoPlayer {...props} setAuth={setAuth} /> ) : (<Redirect to="/" />)}/>
+                            <Route exact path = "/watch"  render={props => !isAuth ? (<Login {...props} setAuth={setAuth} /> ) : (<Redirect to="/video" />)}/>
+                            <Route exact path = "/video" component = {VideoPlayer}/>
                             <Route exact path = "/accounts/update" component={UpdatePwd}/>
                             <Route exact path = "/accounts"  render={props => isAuth? (<Home {...props} setAuth={setAuth} />) : <Redirect to = "/accounts"/>}/>
-                            <Route exact path = "/register" render={props => isAuth? (<AddUser {...props} setAuth={setAuth} />) : <Redirect to = "/home"/>}  />
+                            <Route exact path = "/register" render={props => !isAuth? (<AddUser {...props} setAuth={setAuth} />) : <Redirect to = "/home"/>}  />
                         </Switch>
                     </Router>
                 </div>

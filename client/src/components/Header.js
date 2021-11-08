@@ -6,7 +6,7 @@ import owlet from "../pictures/owlet.jpg";
 const Navi = () => {
     return (
             <Navbar variant = "light">
-                <NavbarBrand href="/">
+                <NavbarBrand href="/home">
                     <img src = {owlet} 
                     width = "60" 
                     height = "auto" 

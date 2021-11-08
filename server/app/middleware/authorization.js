@@ -1,24 +1,25 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config()
+require("dotenv").config();
 
+//this middleware will on continue on if the token is inside the local storage
 
-module.exports = async (req, res, next) => {
-    try {
-        
-        const jwtToken = req.header("token");
+module.exports = function(req, res, next) {
+  // Get token from header
+  const token = req.header("jwt_token");
 
-        if(!jwtToken) {
-            return res.status(403).json("no. bye.")
-        }
+  // Check if not token
+  if (!token) {
+    return res.status(403).json({ msg: "authorization denied" });
+  }
 
-        const payload = jwt.verify(jwtToken, process.env.jwtSecret);
+  // Verify token
+  try {
+    //it is going to give use the user id (user:{id: user.id})
+    const verify = jwt.verify(token, process.env.jwtSecret);
 
-        req.user = payload.user;
-        next();
-
-    } catch (err) {
-        console.error(err.message);
-        return res.status(403).json("no. bye.")
-    }
-
+    req.user = verify.user;
+    next();
+  } catch (err) {
+    res.status(401).json({ msg: "Token is not valid" });
+  }
 };
