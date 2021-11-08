@@ -15,20 +15,11 @@ const AddUser = () => {
                 username,
                 pwd
             });
-            const parseRes = await response.json();
-
-            if (parseRes.jwtToken) {
-                localStorage.setItem("token", parseRes.jwtToken);
-                handleSubmit(true);
-                toast.success("registered successfully");
-
-            }
         } catch (err) {
             console.log("uh oh")
         }
     };
 
-    const [show, setShow] = useState(false);
 
     return (
         <div className = "container">
@@ -45,12 +36,7 @@ const AddUser = () => {
                     <FormText className="text-muted">
                     </FormText> 
                     <br /> 
-                    <Button 
-                    onClick={handleSubmit}
-                    variant="outline-primary"
-                    type="submit"
-                    if handleSubmit
-                    >Submit</Button>
+                    <Button onClick={handleSubmit} variant="outline-primary" type="submit">Submit</Button>
                 </FormGroup>  
             </Form>
         </div>

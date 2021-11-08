@@ -12,7 +12,7 @@ const Navi = () => {
                     height = "auto" 
                     className="d-inline-block align-top"/>
                 </NavbarBrand>  
-                <Nav.Link href = "/register" style={{color:"black"}}>
+                <Nav.Link href = "/register" style={{color:"black"}} >
                     create account 
                 </Nav.Link>  
                 <Nav.Link href = "/video" style={{color:"black"}}>
